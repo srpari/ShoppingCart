@@ -20,10 +20,10 @@ header {
   height: 120px;
 }
 
-.cart {
+.shoppingcart {
   width: 35%;
   font-family: "Oswald", sans-serif;
-  background-color: #40a8c4;
+  background-color: #d9ecf2;
   height: 660px;
   box-shadow: 0 4px 8px 0 #00000033;
   padding: 20px;
@@ -60,6 +60,7 @@ header {
   width: 220px;
   height: 240px;
 }
+
 .content {
   font-family: "Peddana", serif;
   font-size: 25px;
@@ -74,7 +75,7 @@ header {
 }
 
 .orderSummary {
-  background-color: #a2d5f2;
+  background-color: #f6f6f6;
   padding: 20px;
   margin-top: 20px;
 }
@@ -104,24 +105,64 @@ header {
   width: 200px;
   margin-top: 10px;
 }
-.promo {
-  padding: 10px 0px;
-  font-family: "Peddana", serif;
-  font-size: 32px;
+
+.addtocart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin-top: 60px;
+  width: 100%;
+  place-items: center;
+  cursor: pointer;
 }
 
-.promo label {
-  opacity: 0.5;
+.addtocart ion-icon {
+  width: 30px;
+  height: 30px;
+}
+/* 
+.addtocart a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+} */
+
+/* Ribbon SPAN Qty Update */
+
+.ribbon {
+  font-size: 1.5em;
+  width: 3.9em;
+  height: 1.7em;
+  text-align: center;
+  padding: 0.35em 0;
+  border-radius: 0.3em;
+  position: relative;
+  bottom: 40px;
+  left: 30px;
+  /* background: #ffc93c; */
+  transform: rotateZ(0deg);
+  backface-visibility: hidden;
+  color: #000;
+  display: none;
+  cursor: pointer;
 }
 
 input[type="text"] {
-  height: 40px;
-  width: 60%;
-  font-size: 30px;
-  font-family: "Peddana", serif;
-  margin: 10px;
-  color: #000;
-  padding: 20px;
-  border-radius: 5px;
-  border: 1px dashed #000;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  bottom: 10px;
+  text-align: center;
 }
+
+/* 
+.ribbon {
+  display: none;
+  position: relative;
+  bottom: 0px;
+  background-color: #ffc93c;
+  text-align: center;
+  transform: translateY(-100%) rotate(145deg) translateX(70.71067811865476%)
+    rotate(-145deg);
+  transform-origin: bottom right;
+} */

@@ -17,28 +17,48 @@
       href="https://fonts.googleapis.com/css2?family=Peddana&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script src="cart.js"></script>
   </head>
   <body>
     <header>Shopping Cart</header>
 
     <div class="container">
-      <main class="catalog">
-        <div class="card">
+      <main class="catalog">       
+        <div class="card">                    
           <img src="/images/3.jpg" alt="Titan Watch" />
           <div class="content">
             <p>Mag-Com from Maritime by Titan </p>
              <p>$200</p>
-            <button class="btn">Add to cart</button>
-            <!-- <button class="btn">Quick view</button> -->
+            <!-- <button class="btn">Add to cart</button> -->
+            <button class="btn">Quick view</button>
+          </div>          
+          <div class="addtocart">            
+            <ion-icon name="trash-bin" class="bin" onclick="delItems(this.id)" id="0"></ion-icon>
+            <ion-icon name="cart" class="cart" onclick="addItems(this.id)" id="0"></ion-icon>
+          </div>             
+          <div class="ribbon" id="ribbon">
+            <ion-icon name="remove-circle"></ion-icon>
+            <input type="text" value="1">
+            <ion-icon name="add-circle"></ion-icon>
           </div>
-        </div>
+        </div>  
         <div class="card">
           <img src="/images/4.jpg" alt="Titan Watch" />
           <div class="content">
             <p>Raga Aurora Mother of Pearl by Titan</p>
           <p>$220</p>
-            <button class="btn">Add to cart</button>
-            <!-- <button class="btn">Quick view</button> -->
+            <!-- <button class="btn">Add to cart</button> -->
+            <button class="btn">Quick view</button>
+          </div>
+          <div class="addtocart">            
+            <ion-icon name="trash-bin" class="bin" onclick="delItems(this.id)" id="1"></ion-icon>
+            <ion-icon name="cart" class="cart" onclick="addItems(this.id)" id="1"></ion-icon>
+          </div>             
+          <div class="ribbon" id="ribbon">
+            <ion-icon name="remove-circle"></ion-icon>
+            <input type="text" value="1">
+            <ion-icon name="add-circle"></ion-icon>
           </div>
         </div>
         <div class="card">
@@ -46,23 +66,41 @@
           <div class="content">
             <p>Raga Espana Flemenco by Titan</p>
            <p>$180</p>
-            <button class="btn">Add to cart</button>
-            <!-- <button class="btn">Quick view</button> -->
+            <!-- <button class="btn">Add to cart</button> -->
+            <button class="btn">Quick view</button>
+          </div>
+          <div class="addtocart">            
+            <ion-icon name="trash-bin" class="bin" onclick="delItems(this.id)" id="2"></ion-icon>
+            <ion-icon name="cart" class="cart" onclick="addItems(this.id)" id="2"></ion-icon>
+          </div>             
+          <div class="ribbon" id="ribbon">
+            <ion-icon name="remove-circle"></ion-icon>
+            <input type="text" value="1">
+            <ion-icon name="add-circle"></ion-icon>
           </div>
         </div>
         <div class="card">
           <img src="/images/7.jpg" alt="Titan Watch" />
           <div class="content">
             <p>Raga Crystal Vault by Masaba</p> <p>$270</p>
-            <button class="btn">Add to cart</button>
-            <!-- <button class="btn">Quick view</button> -->
+            <!-- <button class="btn">Add to cart</button> -->
+            <button class="btn">Quick view</button>
+          </div>
+          <div class="addtocart">            
+            <ion-icon name="trash-bin" class="bin" onclick="delItems(this.id)" id="3"></ion-icon>
+            <ion-icon name="cart" class="cart" onclick="addItems(this.id)" id="3"></ion-icon>
+          </div>             
+          <div class="ribbon" id="ribbon">
+            <ion-icon name="remove-circle"></ion-icon>
+            <input type="text" value="1">
+            <ion-icon name="add-circle"></ion-icon>
           </div>
         </div>
       </main>
-      <div class="cart">
+      <div class="shoppingcart">
         <div class="cartItems">Cart : <span>2 Items</span></div>
         <div class="orderSummary">
-          <div class="promo"><label>Enter Promocode </label><input type="text" placeholder="Enter Voucher Code"></div>
+          <!-- <div class="promo"><label>Enter Promocode </label><input type="text" placeholder="Enter Voucher Code"></div> -->
           <p>Order Summary</p>
           <p>Order Total ( 2 Items ) &nbsp; $1200</p>
           <p>Shipping &nbsp; Free</p>
@@ -76,6 +114,7 @@
           </div>        
       </div>
     </div>
+   
     <footer></footer>
   </body>
 </html>
