@@ -1,10 +1,4 @@
-// let itemwiseQty = [
-//     {"item":0,"qty":0},
-//     {"item":1,"qty":0},
-//     {"item":2,"qty":0},
-//     {"item":3,"qty":0}
-// ];
-//let itemwiseQty = {};
+
 let itemwiseQty = [
     {itemqty:1},
     {itemqty:1},
@@ -24,51 +18,26 @@ function addItems (id) {
    targertRibbon.style.display="block";
 }
 
-// function increaseQty(id) {
-//     let inputQty=document.getElementsByTagName("input")[id].value;
-//     document.getElementsByTagName("input")[id].value=++inputQty;
-//     // alert(inputQty);
-//     itemwiseQty.item=id;
-//     itemwiseQty.qty=inputQty;
-//     // itemwiseQty.push(inputQty);
-//     console.log(itemwiseQty);
-// }
-
-// function reduceQty(id){
-//     let inputQty=document.getElementsByTagName("input")[id].value; 
-//     delete itemwiseQty.item[id];
-//     delete itemwiseQty.qty[inputQty];       
-//     console.log('inputQty===='+inputQty);
-        
-//     console.log(itemwiseQty);
-//     document.getElementsByTagName("input")[id].value=--inputQty;        
-//     console.log(itemwiseQty);
-// }
-
 function increaseQty(id) {
     let inputQty=document.getElementsByTagName("input")[id].value;
     document.getElementsByTagName("input")[id].value=++inputQty;    
-    //console.log("itemqty Before "+itemwiseQty[id].itemqty);
-    let item={};    
-   // item.id=id;
-    item.itemqty=inputQty;
-    console.log(item);
-    itemwiseQty[id]=item;
-    // console.log("itemqty After "+itemwiseQty[id].itemqty);    
-    // itemwiseQty.forEach(element => {
-    //     console.log(element);
-    // });
+    updateQty(inputQty, id);   
 }
 
 function reduceQty(id){
-    let inputQty=document.getElementsByTagName("input")[id].value; 
-    document.getElementsByTagName("input")[id].value=--inputQty;   
-  //  console.log("itemqty Before "+itemwiseQty[id].itemqty);
-    let item={};    
-    // item.id=id;
-     item.itemqty=inputQty;
-     console.log(item);
-     itemwiseQty[id]=item;
+    let inputQty=document.getElementsByTagName("input")[id].value;      
+    if(inputQty>0) {
+        updateQty(inputQty, id);   
+        document.getElementsByTagName("input")[id].value=--inputQty;    
+    }
+}
+
+function updateQty(inputQty, id) {
+     console.log("itemqty Before "+itemwiseQty[id].itemqty);
+    let item = {};
+    item.itemqty = inputQty;
+    console.log(item);
+    itemwiseQty[id] = item;
     // console.log("itemqty After "+itemwiseQty[id].itemqty);    
     // itemwiseQty.forEach(element => {
     //     console.log(element);
