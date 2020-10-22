@@ -1,14 +1,16 @@
 
 let itemwiseQty = [
-    {itemqty:1,price:0},
-    {itemqty:1,price:0},
-    {itemqty:1,price:0},
-    {itemqty:1,price:0}
+    {itemqty:0,price:0},
+    {itemqty:0,price:0},
+    {itemqty:0,price:0},
+    {itemqty:0,price:0}
 ];
 let totalQty = 0;
 let sumAmount=0;
 let price=0;
 let itemwiseSum=0;
+
+let tempQty =0;
 
 
 function delItems(id){   
@@ -17,27 +19,26 @@ function delItems(id){
    let targertRibbon= document.getElementsByClassName("ribbon")[id];
    targertRibbon.style.display="none"; 
    document.getElementsByTagName("input")[id].value="1"; 
-   totalQty=totalQty-itemwiseQty[id].itemqty;
-   itemwiseQty[id] = {itemqty:1,price:0};   
-   document.getElementById("totalOrder").innerHTML="( "+totalQty+" Items )";
-   document.getElementById("totalAmount").innerHTML="$0";
-   
+     itemwiseQty[id].itemqty=0;
+     itemwiseQty[id].price=0;
+   displyOrdersummary();   
 }
 
 function addItems (id) {     
-   totalQty++;   
+//    totalQty++;   
    let targetCart = document.getElementsByClassName("cart")[id];
    targetCart.style.display="none";
    let targertRibbon= document.getElementsByClassName("ribbon")[id];
    targertRibbon.style.display="block";      
    price=document.getElementsByClassName("price")[id].textContent;
-   sumAmount=sumAmount+parseInt(price,10);
-   document.getElementById("totalOrder").innerHTML="( "+totalQty+" Items )";
-   document.getElementById("totalAmount").innerHTML="$"+sumAmount;
+   let inputQty=document.getElementsByTagName("input")[id].value;
+
+   itemwiseQty[id].itemqty=parseInt(inputQty,10);;
+   itemwiseQty[id].price=parseInt(price,10);
+   displyOrdersummary();   
 }
 
 function increaseQty(id) {
-    ++totalQty;
     let inputQty=document.getElementsByTagName("input")[id].value;
     document.getElementsByTagName("input")[id].value=++inputQty;   
     price=document.getElementsByClassName("price")[id].textContent;
@@ -47,8 +48,7 @@ function increaseQty(id) {
 
 function reduceQty(id){
     let inputQty=document.getElementsByTagName("input")[id].value;      
-    if(inputQty>1) {        
-        --totalQty;   
+    if(inputQty>0) {        
         document.getElementsByTagName("input")[id].value=--inputQty;  
         price=document.getElementsByClassName("price")[id].textContent;
         price=parseInt(price,10); 
@@ -64,10 +64,19 @@ function updateQty(inputQty, id,price) {
     itemwiseSum=(item.itemqty * item.price);
     item.price = itemwiseSum;  
     itemwiseQty[id] = item;
-    // console.log(item); 
-    // console.log(itemwiseSum);
-    sumAmount = itemwiseQty.map(element => element.price).reduce((a, b) => a + b, 0);
-    console.log(sumAmount); // 600 = 0 + 100 + 200 + 300
-    document.getElementById("totalOrder").innerHTML="("+totalQty+" Items )";
-    document.getElementById("totalAmount").innerHTML="$"+sumAmount;  
+    displyOrdersummary();  
 }
+
+function displyOrdersummary() {
+    sumAmount = itemwiseQty.map(element => element.price).reduce((a, b) => a + b, 0);
+   // console.log("sumAmount====="+sumAmount); // 600 = 0 + 100 + 200 + 300    
+    tempQty = itemwiseQty.map(element => element.itemqty).reduce((a, b) => a + b, 0);
+  //  console.log("sumQuantity====="+tempQty); // 600 = 0 + 100 + 200 + 300
+    // itemwiseQty.forEach((element,index) => {
+    //     console.log("itemwiseQty===="+element.itemqty);
+    //     console.log("itemwisePrice===="+element.price);
+    // });
+    document.getElementById("totalOrder").innerHTML = "(" + tempQty + " Items )";
+    document.getElementById("totalAmount").innerHTML = "$" + sumAmount;
+}
+
