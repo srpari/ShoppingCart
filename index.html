@@ -17,8 +17,12 @@
       href="https://fonts.googleapis.com/css2?family=Peddana&display=swap"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <script src="cart.js"></script>
+    
+    <!-- <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script> -->
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+
   </head>
   <body>
     <header>Shopping Cart</header>
@@ -29,8 +33,10 @@
           <img src="/images/3.jpg" alt="Titan Watch" />
           <div class="content">
             <p>Mag-Com from Maritime by Titan </p>
-             <p>$ <span class="price" id="0">200</span></p>
-            <button class="btn">Quick view</button>
+             <p>$ <span class="price" id="0">200</span>&nbsp;
+              (<span class="discount" id="0" style="color:red;">25% Off)</span> 
+             </p>
+            <button class="btn" class="quickView" id="0">Quick view</button>
           </div>          
           <div class="addtocart">            
             <ion-icon name="trash-bin" class="bin" onclick="delItems(this.id)" id="0"></ion-icon>
@@ -46,7 +52,8 @@
           <img src="/images/4.jpg" alt="Titan Watch" />
           <div class="content">
             <p>Raga Aurora Mother of Pearl by Titan</p>
-            <p>$ <span class="price" id="1">220</span></p>
+            <p>$ <span class="price" id="1">220</span>
+            <span class="discount" id="1" style="color:red"></span></p>
             <button class="btn">Quick view</button>
           </div>
           <div class="addtocart">            
@@ -63,7 +70,8 @@
           <img src="/images/6.jpg" alt="Titan Watch" />
           <div class="content">
             <p>Raga Espana Flemenco by Titan</p>
-           <p>$ <span class="price" id="2">180</span></p>
+           <p>$ <span class="price" id="2">180</span>&nbsp;
+            (<span class="discount" id="2" style="color:red">10% Off)</span></p>
             <button class="btn">Quick view</button>
           </div>
           <div class="addtocart">            
@@ -80,7 +88,8 @@
           <img src="/images/7.jpg" alt="Titan Watch" />
           <div class="content">
             <p>Raga Crystal Vault by Masaba</p> 
-            <p>$ <span class="price" id="3">270</span></p>
+            <p>$ <span class="price" id="3">270</span>
+              <span class="discount" id="3" value="0" style="color:red"></span></p>
             <button class="btn">Quick view</button>
           </div>
           <div class="addtocart">            
@@ -92,19 +101,21 @@
             <input type="text" value="1" id="3">
             <ion-icon name="add-circle" class="increase" id="3" onclick="increaseQty(this.id)"></ion-icon>
           </div>
-        </div>
+        </div>        
       </main>
       <div class="shoppingcart">
-        <div class="cartItems">Cart : <span id="orderItems">2 Items</span></div>
-        <div class="orderSummary">
-            <p>Order Summary</p>
+        <div class="cartItems">Cart  <span id="orderItems"></span></div>
+        <div class="orderSummary" style="text-indent: 50px;">
+         <p>Order Summary</p>
+         <strong>
           <p>Order Total
             <span id="totalOrder"></span>&nbsp;
             <span id="totalAmount"></span>
           </p>
-          <p>Shipping &nbsp; Free</p>
-          <p>Discount &nbsp; 0</p>
-          <p>You Pay &nbsp; $1200</p>
+          <p>Shipping&nbsp;Free</p>
+          <p>Discount&nbsp;<span id="totalDiscount"></span></p>
+          <p>You Pay &nbsp;<span id="yourPayment"></span></p>
+          </strong>
           <p>Inclusive of all taxes*</p>
         </div>
           <div class="proceed">
@@ -112,8 +123,7 @@
             <a href="#" class="continue">Continue Shopping</a>
           </div>        
       </div>
-    </div>
-   
+    </div>   
     <footer></footer>
   </body>
 </html>
